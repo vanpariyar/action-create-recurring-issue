@@ -1,0 +1,41 @@
+name: "Create Recurring Issue"
+description: "Creates a recurring GitHub Issue with a predefined checklist each month"
+author: "Ronak Vanpariyar"
+branding:
+  icon: "calendar"
+  color: "blue"
+
+inputs:
+  github_token:
+    description: "GitHub token with 'issues: write' permission"
+    required: true
+  title_prefix:
+    description: "Prefix for the issue title"
+    required: true
+    default: "Monthly Rent & Bills"
+  labels:
+    description: "Comma-separated labels to add to the issue"
+    required: false
+    default: "monthly,rent"
+  checklist_template:
+    description: "Multiline checklist for the issue body"
+    required: false
+    default: |
+      - [ ] Office Rent Paid
+      - [ ] Home Rent Paid
+      - [ ] Maintenance Paid
+      - [ ] Light Bill Paid
+      - [ ] Internet Bill Paid
+      - [ ] Other Expenses Reviewed
+
+runs:
+  using: "composite"
+  steps:
+    - name: Create Monthly Issue
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github_token }}
+        TITLE_PREFIX: ${{ inputs.title_prefix }}
+        LABELS: ${{ inputs.labels }}
+        CHECKLIST_TEMPLATE: ${{ inputs.checklist_template }}
+      run: bash $GITHUB_ACTION_PATH/entrypoint.sh
