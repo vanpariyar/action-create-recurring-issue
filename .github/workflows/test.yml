@@ -1,0 +1,15 @@
+name: Test Recurring Issue
+
+on:
+  workflow_dispatch:
+  #schedule:
+   # - cron: '0 0 1 * *' # 1st of every month
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./ # use local action for testing
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
