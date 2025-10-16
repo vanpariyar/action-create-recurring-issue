@@ -150,7 +150,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Monthly Rent Issue
-        uses: vanpariyar/create-recurring-issue@v1
+        uses: vanpariyar/action-create-recurring-issue@v1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           title_prefix: "Monthly Rent & Bills"
