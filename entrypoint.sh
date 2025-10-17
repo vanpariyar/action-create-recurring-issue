@@ -29,7 +29,7 @@ curl -s -X POST \
       --arg body "$BODY" \
       --arg assignee "$ASSIGNEE" \
       --argjson labels "$LABEL_JSON" \
-      '{title: $title, body: $body, labels: $labels}')" \
+      '{title: $title, body: $body, labels: $labels, assignees: [$assignee], assignee: $assignee}')" \
   "https://api.github.com/repos/${REPO}/issues"
 
 echo "✅ Done. Issue created: '$TITLE'"
