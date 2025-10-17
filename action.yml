@@ -17,6 +17,10 @@ inputs:
     description: "Comma-separated labels to add to the issue"
     required: false
     default: "monthly,rent"
+  assignee:
+    description: "User name for the assignee"
+    required: false
+    default: "none"
   checklist_template:
     description: "Multiline checklist for the issue body"
     required: false
@@ -38,4 +42,5 @@ runs:
         TITLE_PREFIX: ${{ inputs.title_prefix }}
         LABELS: ${{ inputs.labels }}
         CHECKLIST_TEMPLATE: ${{ inputs.checklist_template }}
+        ASSIGNEE: ${{ inputs.asignee }}
       run: bash $GITHUB_ACTION_PATH/entrypoint.sh
