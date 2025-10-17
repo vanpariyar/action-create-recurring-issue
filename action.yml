@@ -42,5 +42,5 @@ runs:
         TITLE_PREFIX: ${{ inputs.title_prefix }}
         LABELS: ${{ inputs.labels }}
         CHECKLIST_TEMPLATE: ${{ inputs.checklist_template }}
-        ASSIGNEE: ${{ inputs.asignee }}
+        ASSIGNEE: ${{ inputs.assignee }}
       run: bash $GITHUB_ACTION_PATH/entrypoint.sh
