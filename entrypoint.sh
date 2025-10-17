@@ -27,6 +27,7 @@ curl -s -X POST \
   -d "$(jq -n \
       --arg title "$TITLE" \
       --arg body "$BODY" \
+      --arg asignee "$ASSIGNEE" \
       --argjson labels "$LABEL_JSON" \
       '{title: $title, body: $body, labels: $labels}')" \
   "https://api.github.com/repos/${REPO}/issues"
