@@ -41,6 +41,6 @@ runs:
         GH_TOKEN: ${{ inputs.github_token }}
         TITLE_PREFIX: ${{ inputs.title_prefix }}
         LABELS: ${{ inputs.labels }}
-        CHECKLIST_TEMPLATE: ${{ inputs.checklist_template }}
         ASSIGNEE: ${{ inputs.assignee }}
+        CHECKLIST_TEMPLATE: ${{ inputs.checklist_template }}
       run: bash $GITHUB_ACTION_PATH/entrypoint.sh
